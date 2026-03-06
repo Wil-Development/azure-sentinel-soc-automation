@@ -40,7 +40,7 @@ The results are automatically posted to the incident activity log.
 
 The playbook automatically posts an investigation summary directly into the Sentinel incident activity timeline.
 
-![Incident Enrichment Output](screenshots/sentinel-incident-enrichment-output1.png)
+![Incident Enrichment Output][screenshots/sentinel-incident-enrichment-output1.png]
 
 ---
 
