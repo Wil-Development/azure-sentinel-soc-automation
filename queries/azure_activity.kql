@@ -1,0 +1,16 @@
+// ---------------------------------------------------------
+// Azure Activity Investigation Query
+// Used in Microsoft Sentinel playbook for incident enrichment
+// Retrieves administrative activity within the last 24 hours
+// ---------------------------------------------------------
+
+AzureActivity
+| where TimeGenerated > ago(24h)
+| where OperationNameValue has_any ("write", "delete", "action")
+| project TimeGenerated,
+          Caller,
+          OperationNameValue,
+          ResourceGroup,
+          ResourceProviderValue,
+          ActivityStatusValue
+| order by TimeGenerated desc
