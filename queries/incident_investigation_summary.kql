@@ -1,0 +1,22 @@
+// ---------------------------------------------------------
+// Combined Investigation Query
+// Correlates multiple telemetry sources for investigation
+// ---------------------------------------------------------
+
+union isfuzzy=true
+(
+AzureActivity
+| where TimeGenerated > ago(24h)
+| project TimeGenerated, Source="AzureActivity", Caller, OperationNameValue
+),
+(
+SecurityAlert
+| where TimeGenerated > ago(24h)
+| project TimeGenerated, Source="SecurityAlert", AlertName, AlertSeverity
+),
+(
+AzureDiagnostics
+| where TimeGenerated > ago(24h)
+| project TimeGenerated, Source="AzureDiagnostics", OperationName, ResultType
+)
+| order by TimeGenerated desc
