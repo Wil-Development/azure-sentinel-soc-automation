@@ -1,0 +1,15 @@
+// ---------------------------------------------------------
+// Azure Diagnostics Investigation Query
+// Pulls diagnostic activity from Azure services
+// Used to provide additional context during incident triage
+// ---------------------------------------------------------
+
+AzureDiagnostics
+| where TimeGenerated > ago(24h)
+| project TimeGenerated,
+          Resource,
+          Category,
+          OperationName,
+          ResultType
+| order by TimeGenerated desc
+| take 20
