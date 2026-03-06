@@ -128,3 +128,8 @@ azure-sentinel-soc-automation
 ├─ architecture
 └─ README.md
 ```
+## Architecture
+
+The following diagram shows the incident enrichment workflow implemented using Microsoft Sentinel and Azure Logic Apps.
+
+![Architecture](architecture/sentinel-playbook-architecture.png)
