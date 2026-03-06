@@ -35,7 +35,31 @@ The results are automatically posted to the incident activity log.
 9. Post investigation summary into incident activity
 
 ---
+## Example Investigation Output
 
+The playbook posts an investigation summary directly into the incident timeline.
+
+Example structure:
+
+Investigation Enrichment Summary
+
+Azure Resource Activity
+
+| TimeGenerated | Caller | Operation |
+|---------------|--------|----------|
+| Example | User | Resource Write |
+
+Security Alerts
+
+| TimeGenerated | AlertName | Severity |
+|---------------|-----------|---------|
+
+Azure Diagnostics
+
+| TimeGenerated | Resource | Operation |
+|---------------|----------|-----------|
+
+---
 ## Example Incident Enrichment Output
 
 The playbook automatically posts an investigation summary directly into the Sentinel incident activity timeline.
