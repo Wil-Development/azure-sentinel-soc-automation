@@ -1,0 +1,14 @@
+// ---------------------------------------------------------
+// Security Alert Investigation Query
+// Retrieves recent alerts generated in Microsoft Sentinel
+// Used to correlate incidents with existing alerts
+// ---------------------------------------------------------
+
+SecurityAlert
+| where TimeGenerated > ago(24h)
+| project TimeGenerated,
+          AlertName,
+          AlertSeverity,
+          CompromisedEntity,
+          ProductName
+| order by TimeGenerated desc
